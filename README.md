@@ -1,6 +1,13 @@
 jsライブラリ
 
-native esmでもnpmでも利用可能なものを配布するテスト
+native_esm(cdnで読まれることを想定)でも利用可能で、とcommonjs(webpackなどを介してnpmから読まれることを想定)でも利用可能な、ものを配布するテスト。
+
+1. ts(外部依存はcdn)でライブラリを書く
+1. tscでnative_esm(外部依存はcdn)を吐く→ native_esm完成、lib/**/*.mjsとした
+1. rollupでlib/index.mjsからcommonjs→ commonjs完成、lib/index.jsとした
+    1. その際に、外部依存でcdnになっている部分をrollup-alias-pluginでnode_modules依存に置き換えている
+1. package.jsonのmainフィールドに拡張子を省いて```lib/index```と書くことで、esmを求めるユーザーとcommonjs(通常のnode_modules解決)を求めるユーザーに対応している
+
 
 ## lib/index.mjs 及び lib/**/*.mjs
 ブラウザnativeで読み込まれることを想定したesm
