@@ -1,0 +1,23 @@
+{
+  "name": "@hikaruna/pocket-monster",
+  "version": "0.0.1",
+  "main": "lib/index",
+  "scripts": {
+    "clean": "rm -rf lib",
+    "prebuild": "npm run clean",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc && renamer --find js --replace mjs './lib/**/*'",
+    "build:cjs": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hikaruna",
+  "license": "MIT",
+  "devDependencies": {
+    "lit-html": "^1.1.2",
+    "rollup-plugin-alias": "^2.2.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "dependencies": {
+    "rollup-plugin-commonjs": "^10.1.0"
+  }
+}

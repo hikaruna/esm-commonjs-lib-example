@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  web:
+    build:
+      context: .
+      target: mjs-server
+    volumes:
+      - ./dist:/usr/share/nginx/html
+    ports:
+      - 3000:80

@@ -1,0 +1,12 @@
+esm-demo
+
+<pocket-monster></pocket-monster>
+<script type="module" src="./lib/components/PocketMonster.mjs"></script>
+<script type="module">
+  import Monster from './lib/Monster.mjs';
+
+  window.onload = () => {
+    const pocketMonster = document.querySelector('pocket-monster');
+    pocketMonster.monster = new Monster({ name: 'hitokage' });
+  }
+</script>
